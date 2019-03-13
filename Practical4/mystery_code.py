@@ -1,5 +1,5 @@
 # What does this piece of code do?
-# Answer: 
+# Answer: to get a prime number.
 
 # Import libraries
 # randint allows drawing a random number, 
@@ -13,9 +13,13 @@ from math import ceil
 p=False
 while p==False:
     p=True
+    #try to get a random number greater than 1 but less than 100
     n = randint(1,100)
     u = ceil(n**(0.5))
     for i in range(2,u+1):
+        # to see whether it has factor
+        # try until the ceiling number of the square number. 
+        # if it still doesn't have a factor, it means it's a prime number
         if n%i == 0:
             p=False
 
