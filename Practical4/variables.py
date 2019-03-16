@@ -13,3 +13,10 @@ e=d/13
 print (e)
 print ('a equals to e hahaha')
 print ('Because b=a*1001, and then e=b/(7*11*13)=b/1001=a*1001/1001=a')
+
+x=True
+y=False
+z= (x and not y) or (y and not x)
+print (z)
+w=x!=y
+print (w)
