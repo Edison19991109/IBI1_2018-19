@@ -5,26 +5,15 @@ Created on Wed Mar 20 18:14:00 2019
 @author: KANG Jianning
 """
 
-#open the file
-address= open ('address_information.csv','r')
-
-#actually read the file
-ea=address.read()
-
-#split the file
-import re
-sp=re.split(r',', ea)
-print(sp)
 
 #define the function of sending e-mails
-def send(x, y, z, content):
+def send(x, y, z, content,mail_pass):
     import smtplib
     from email.mime.text import MIMEText
     from email.header import Header
 
     mail_host="smtp.zju.edu.cn"  
-    mail_user="3180112702"    
-    mail_pass="kflykjn119"   
+    mail_user="3180112702"      
  
     sender = '3180112702@zju.edu.cn'
     receivers = y  
@@ -48,21 +37,20 @@ def send(x, y, z, content):
         print ("Error: Mail failed to send")
 
 
-#find the e-amil address
-ad=re.findall(r',(\S+@\S+),', ea)
-
 #define legeal e-mail address and send e-mails
+import re
 import pandas as pd
 data=pd.read_csv('address_information.csv')
-body= open ('body.txt','r')
-show=body.read()
+with open ('body.txt', 'r')as show:
+    show=show.read()
+mail_pass=input('Password:')
 for line in data.values:
     if not re.match(r'\S+@\S+\.com$', line[1]):
         print(line[1], ':Wrong Address!')
         continue
     print (line[1], ':Correct Address!')
     display=re.sub(r'User', line[0], show)
-    send(line[0], line[1], line[2], display)
+    send(line[0], line[1], line[2], display,mail_pass)
 
 
 
