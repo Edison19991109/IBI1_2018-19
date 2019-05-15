@@ -33,4 +33,4 @@ for term in terms:
         countchildnodes(id, ChildrenSet)
         df = df.append(pd.DataFrame({'id':[id],'name':[name],'definition':[definition],'childnodes':[len(ChildrenSet)]}))
 
-df.to_excel('output.xlsx',index=False)  
+df.to_excel('autophagosome.xlsx',index=False)  
