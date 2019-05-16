@@ -1,0 +1,8 @@
+The results of running the python file show that BLOSUM score for mouse human comparison is 1091,
+but for mouse random sequence comparison and human random sequence comparison are both -250.
+Considering sequence length may also influences BLOSUM score, normalised scores are calculated through dividing BlOSUM score by sequence length.
+The normalised score for mouse human comparison is 4.91, while for mouse random sequence comparison and human random sequence comparsion the scores are both -1.12.
+In addition, 89.6% amino acids in mouse and human sequence are the same, whilst only 5.4% amino acids are the same comparing mouse or human sequence with random sequence.
+These results suggest that mouse and human SOD2 proteins are very similar in sequence.
+Surprisingly, when compared random sequence with human or mouse sequence,  scores are both the same negative interger.
+So next time when we want to show how similar between two different sequences by using BLOSUM score, it may be better to provide a baseline like the BLOSUM score of comparing those sequences with a random sequence.
