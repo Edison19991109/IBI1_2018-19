@@ -92,3 +92,6 @@ plt.title('Limit cycle')
 plt.legend()
 
 from xml.dom.minidom import parse
+#Find all paratermeter attributes in that SBML file.
+#Randomly pick up a number and change those attributes.
+#Creat a loop for procedures above. Run it for several times.
