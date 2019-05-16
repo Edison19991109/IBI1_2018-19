@@ -5,7 +5,7 @@ Created on Wed Apr 17 09:18:58 2019
 @author: KANG Jianning
 """
 
-import sys
+
 import pandas as pd
 data = pd.read_csv(r'C:\Users\KANG Jianning\Documents\GitKraken\IBI1_2018-19\Practical9\blosum62.txt', sep=r' +', engine='python')
 blosum= data.to_dict()
@@ -20,26 +20,31 @@ random=open(r'C:\Users\KANG Jianning\Documents\GitKraken\IBI1_2018-19\Practical9
 random=random.read()
 # Read the sequences.
 
-def output(score, sequence1, compare, sequence2, name1, name2):
+def output(same, normalisedscore, score, sequence1, compare, sequence2, name1, name2):
     print('This is the score comparing',name1, 'and', name2, ':', end='');print('\033[1;31;43m',end='');print(score);print('\033[0m', end=''); print()
+    print('This is the normalised score :', end='');print('\033[1;31;43m',end='');print(normalisedscore);print('\033[0m', end=''); print()
+    print('This is the % identity for',name1, 'and', name2,':',end='');print('\033[1;31;43m',end='');print(same,end='');print('%');print('\033[0m', end=''); print()
     print(sequence1); print()
     print('\033[1;37;44m',end=''); print(compare);print('\033[0m');print()
     print(sequence2);print('*' *50)
 # Define the format of output.
 
 def compare_two_sequence(sequence1, sequence2, Name1, Name2):
-    score=0
+    score=0; normalisedscore=0
     compare=[]
+    same=0
     for i in range(len(sequence1)):
         score+=blosum[sequence1[i]][sequence2[i]]
         if sequence1[i]==sequence2[i]:
             compare.append(sequence1[i])
+            same +=1
         elif blosum[sequence1[i]][sequence2[i]]>=0:
             compare.append('+')
         else:
             compare.append(' ')
     compare=''.join(compare)
-    output(score, sequence1, compare, sequence2, Name1, Name2)
+    same=same/len(sequence1)*100; normalisedscore=score/len(sequence1)
+    output(same,normalisedscore,score, sequence1, compare, sequence2, Name1, Name2)
 # Define the comparing function.
 
 compare_two_sequence(human, mouse, 'human', 'mouse')
