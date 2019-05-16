@@ -1,0 +1,6 @@
+This practical is a little difficult for me.
+At first, I misunderstood the use of array. Then when using the random function, I typed in the possibilities in reverse, which made infected people fail to occur.
+Also I did not know how to plot situations of different vaccination in one figure. After communicating with classmates, I realized that I should delete 'plt.figure(figsize=(6,4), dpi=150)'.
+The most impressive part of this practical is that while trying to code for the last task, I was not sure how to find out all the neighbours of infected points. I even thought about listing all the neighbours by using index.
+After looking at Mela's codes, I was extremely amazed at the usage of loop. That is so clever!
+So next time when I try to find out something, I can consider using loop together with list index.

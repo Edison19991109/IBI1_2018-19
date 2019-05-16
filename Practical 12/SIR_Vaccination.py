@@ -31,4 +31,3 @@ def model(Susceptible, Recovered, Percentage):
 for i in range(0,110,10):
     percentage=i/100
     model(int(10000-10000*percentage), int(10000*percentage), i)
-#100% is an exception.
